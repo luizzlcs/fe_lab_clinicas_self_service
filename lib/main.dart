@@ -1,8 +1,10 @@
 import 'package:fe_lab_clinicas_core/fe_lab_clinicas_core.dart';
-import 'package:fe_lab_clinicas_self_service/src/bindings/lab_clinicas_application_bindings.dart';
-import 'package:fe_lab_clinicas_self_service/src/page/splashPage/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_getit/flutter_getit.dart';
+
+import 'src/bindings/lab_clinicas_application_bindings.dart';
+import 'src/modules/auth/auth_module.dart';
+import 'src/page/splashPage/splash_page.dart';
 
 
 void main() {
@@ -23,6 +25,7 @@ class LabClinicasSelfServiceApp extends StatelessWidget {
           path: '/',
         ),
       ],
+      modules: [AuthModule()],
     );
   }
 }
