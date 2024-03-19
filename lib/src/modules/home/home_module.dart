@@ -1,10 +1,14 @@
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_getit/flutter_getit.dart';
 
+import 'home_page.dart';
+
 class HomeModule extends FlutterGetItModule {
   @override
-  String get moduleRouteName => throw UnimplementedError();
+  String get moduleRouteName => '/home';
 
   @override
-  Map<String, WidgetBuilder> get pages => throw UnimplementedError();
+  Map<String, WidgetBuilder> get pages => {
+    '/':(context) => const HomePage(),
+  };
 }

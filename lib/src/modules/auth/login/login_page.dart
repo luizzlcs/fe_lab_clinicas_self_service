@@ -38,6 +38,7 @@ class _LoginPageState extends State<LoginPage> with MessageViewMixin {
   @override
   Widget build(BuildContext context) {
     final sizeOf = MediaQuery.sizeOf(context);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Login Page'),
@@ -115,7 +116,7 @@ class _LoginPageState extends State<LoginPage> with MessageViewMixin {
                             controller.login(emailEC.text, passwordEC.text);
                           }
                         },
-                        child: Text('Entrar'),
+                        child: const Text('Entrar'),
                       ),
                     )
                   ],
