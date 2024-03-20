@@ -13,7 +13,7 @@ class _SplashPageState extends State<SplashPage> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       Future.delayed(
         Duration(microseconds: 200),
-        () => Navigator.of(context).pushReplacementNamed('/home'), //auth/login
+        () => Navigator.of(context).pushReplacementNamed('/auth/login'), //auth/login
       );
     });
     super.initState();
