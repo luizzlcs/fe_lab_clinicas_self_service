@@ -49,7 +49,9 @@ class _FindPatientPageState extends State<FindPatientPage> with MessageViewMixin
                   )
                 ];
               },
-              onSelected: (value) async {}),
+              onSelected: (value) async {
+                Injector.get<SelfServiceController>().restartProcess();
+              }),
         ],
       ),
       body: LayoutBuilder(builder: (_, constrains) {
@@ -103,7 +105,9 @@ class _FindPatientPageState extends State<FindPatientPage> with MessageViewMixin
                             ),
                           ),
                           TextButton(                            
-                            onPressed: () {},
+                            onPressed: () {
+                              controller.continueWithoutDocument();
+                            },
                             child: Text(
                               'Clique aqui',
                               style: TextStyle(
