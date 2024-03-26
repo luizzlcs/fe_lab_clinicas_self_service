@@ -1,7 +1,10 @@
+import 'package:brasil_fields/brasil_fields.dart';
 import 'package:fe_lab_clinicas_self_service_cb/src/modules/self_service/patient/patient_form_controller.dart';
+import 'package:flutter/services.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:fe_lab_clinicas_core/fe_lab_clinicas_core.dart';
 import 'package:flutter/material.dart';
+import 'package:validatorless/validatorless.dart';
 import '../widget/lab_clinicas_self_service_app_bar.dart';
 
 @JsonSerializable()
@@ -65,6 +68,7 @@ class _PatientPageState extends State<PatientPage> with PatientFormcontroller {
                   ),
                   TextFormField(
                     controller: nameEC,
+                    validator: Validatorless.required('Nome obrigatório'),
                     decoration: InputDecoration(
                       label: Text('Nome paciente'),
                       isDense: true,
@@ -75,6 +79,11 @@ class _PatientPageState extends State<PatientPage> with PatientFormcontroller {
                   ),
                   TextFormField(
                     controller: emailEC,
+                    keyboardType: TextInputType.emailAddress,
+                    validator: Validatorless.multiple([
+                      Validatorless.required('E-mail obrigatório!'),
+                      Validatorless.email('E-mail inválido'),
+                    ]),
                     decoration: InputDecoration(
                       label: Text('E-mail'),
                       isDense: true,
@@ -85,6 +94,8 @@ class _PatientPageState extends State<PatientPage> with PatientFormcontroller {
                   ),
                   TextFormField(
                     controller: phoneEC,
+                    keyboardType: TextInputType.phone,
+                    validator: Validatorless.required('Telefone obrigatório'),
                     decoration: InputDecoration(
                       label: Text('Telefone de contato'),
                       isDense: true,
@@ -95,6 +106,12 @@ class _PatientPageState extends State<PatientPage> with PatientFormcontroller {
                   ),
                   TextFormField(
                     controller: documentEC,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.digitsOnly,
+                      CpfInputFormatter(),
+                    ],
+                    validator: Validatorless.required('CPF obrigatório'),
                     decoration: InputDecoration(
                       label: Text('Digite seu CPF'),
                       isDense: true,
@@ -105,6 +122,12 @@ class _PatientPageState extends State<PatientPage> with PatientFormcontroller {
                   ),
                   TextFormField(
                     controller: cepEC,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.digitsOnly,
+                      CepInputFormatter()
+                    ],
+                    validator: Validatorless.required('CEP obrigatório'),
                     decoration: InputDecoration(
                       label: Text('CEP'),
                       isDense: true,
@@ -119,6 +142,8 @@ class _PatientPageState extends State<PatientPage> with PatientFormcontroller {
                         flex: 3,
                         child: TextFormField(
                           controller: streetEC,
+                          validator:
+                              Validatorless.required('Endereço obrigatório'),
                           decoration: InputDecoration(
                             label: Text('Endereço'),
                             isDense: true,
@@ -132,6 +157,8 @@ class _PatientPageState extends State<PatientPage> with PatientFormcontroller {
                         flex: 1,
                         child: TextFormField(
                           controller: numberEC,
+                          validator:
+                              Validatorless.required('Número obrigatório'),
                           decoration: InputDecoration(
                             label: Text('Nº'),
                             isDense: true,
@@ -162,6 +189,8 @@ class _PatientPageState extends State<PatientPage> with PatientFormcontroller {
                         flex: 1,
                         child: TextFormField(
                           controller: stateEC,
+                          validator:
+                              Validatorless.required('Estado obrigatório'),
                           decoration: InputDecoration(
                             label: Text('UF'),
                             isDense: true,
@@ -178,6 +207,8 @@ class _PatientPageState extends State<PatientPage> with PatientFormcontroller {
                       Expanded(
                         child: TextFormField(
                           controller: cityEC,
+                          validator:
+                              Validatorless.required('Cidade obrigatória'),
                           decoration: InputDecoration(
                             label: Text('Cidade'),
                             isDense: true,
@@ -190,6 +221,8 @@ class _PatientPageState extends State<PatientPage> with PatientFormcontroller {
                       Expanded(
                         child: TextFormField(
                           controller: districtEC,
+                          validator:
+                              Validatorless.required('Bairro obrigatório'),
                           decoration: InputDecoration(
                             label: Text('Bairro'),
                             isDense: true,
@@ -212,7 +245,11 @@ class _PatientPageState extends State<PatientPage> with PatientFormcontroller {
                     height: 16,
                   ),
                   TextFormField(
-                    controller:guardianIdentificationNumberEC,
+                    controller: guardianIdentificationNumberEC,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.digitsOnly,
+                      CpfInputFormatter(),
+                    ],
                     decoration: InputDecoration(
                       label: Text('Documento de identificação'),
                       isDense: true,
