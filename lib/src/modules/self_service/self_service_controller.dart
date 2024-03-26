@@ -1,4 +1,5 @@
 import 'package:fe_lab_clinicas_core/fe_lab_clinicas_core.dart';
+import 'package:fe_lab_clinicas_self_service_cb/src/model/patient_model.dart';
 import 'package:fe_lab_clinicas_self_service_cb/src/model/self_service_model.dart';
 import 'package:signals_flutter/signals_flutter.dart';
 
@@ -24,12 +25,13 @@ class SelfServiceController with MessageStateMixin {
 
   void setWhoIAmDataStepAndNext(String name, String lastName) {
     _model = _model.copyWith(name: () => name, lastName: () => lastName);
-    _step.forceUpdate(FormSteps.patient);
+    _step.forceUpdate(FormSteps.findpatient);
   }
 
-  void debug(){
-    print(_model.name);
-    print(_model.lastName);
+  void goToFormPatient(PatientModel? patient){
+    _model = _model.copyWith(patient: ()=> patient);
+    _step.forceUpdate(FormSteps.patient);
+
   }
 
   void clearForm() {
