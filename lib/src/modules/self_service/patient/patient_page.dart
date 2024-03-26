@@ -1,10 +1,13 @@
 import 'package:brasil_fields/brasil_fields.dart';
 import 'package:fe_lab_clinicas_self_service_cb/src/modules/self_service/patient/patient_form_controller.dart';
+import 'package:fe_lab_clinicas_self_service_cb/src/modules/self_service/self_service_controller.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_getit/flutter_getit.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:fe_lab_clinicas_core/fe_lab_clinicas_core.dart';
 import 'package:flutter/material.dart';
 import 'package:validatorless/validatorless.dart';
+import '../../../model/self_service_model.dart';
 import '../widget/lab_clinicas_self_service_app_bar.dart';
 
 @JsonSerializable()
@@ -16,7 +19,22 @@ class PatientPage extends StatefulWidget {
 }
 
 class _PatientPageState extends State<PatientPage> with PatientFormcontroller {
+  final selfServiceController = Injector.get<SelfServiceController>();
   final formKey = GlobalKey<FormState>();
+
+  late bool patientFound;
+  late bool formEdit;
+
+  @override
+  void initState() {
+    final SelfServiceModel(:patient)= selfServiceController.model;
+
+    patientFound = patient !=null;
+    formEdit = !patientFound;
+    initializeForm(patient);
+
+    super.initState();
+  }
 
   @override
   void dispose() {

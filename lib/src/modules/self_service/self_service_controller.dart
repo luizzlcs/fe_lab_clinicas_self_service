@@ -14,8 +14,12 @@ enum FormSteps {
 }
 
 class SelfServiceController with MessageStateMixin {
-  final _step = ValueSignal(FormSteps.none);
+  final _step = ValueSignal(
+    FormSteps.none,
+  );
+
   var _model = const SelfServiceModel();
+  SelfServiceModel get model => _model;
 
   FormSteps get step => _step();
 
@@ -28,10 +32,9 @@ class SelfServiceController with MessageStateMixin {
     _step.forceUpdate(FormSteps.findpatient);
   }
 
-  void goToFormPatient(PatientModel? patient){
-    _model = _model.copyWith(patient: ()=> patient);
+  void goToFormPatient(PatientModel? patient) {
+    _model = _model.copyWith(patient: () => patient);
     _step.forceUpdate(FormSteps.patient);
-
   }
 
   void clearForm() {
@@ -42,4 +45,7 @@ class SelfServiceController with MessageStateMixin {
     _step.forceUpdate(FormSteps.restart);
     clearForm();
   }
+
+@override
+List<Object?> get props => [_step, _model];
 }
