@@ -37,4 +37,9 @@ class SelfServiceController with MessageStateMixin {
   void clearForm() {
     _model = _model.clear();
   }
+
+  void restartProcess() {
+    _step.forceUpdate(FormSteps.restart);
+    clearForm();
+  }
 }
