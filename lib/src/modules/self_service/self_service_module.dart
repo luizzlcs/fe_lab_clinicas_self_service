@@ -11,7 +11,6 @@ import 'package:flutter_getit/flutter_getit.dart';
 
 import '../../repositories/patients/patient_repository.dart';
 import 'done/done_page.dart';
-import 'patient/patient_page.dart';
 import 'self_service_page.dart';
 
 class SelfServiceModule extends FlutterGetItModule {

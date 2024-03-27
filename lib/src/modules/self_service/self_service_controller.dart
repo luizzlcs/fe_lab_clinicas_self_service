@@ -46,6 +46,10 @@ class SelfServiceController with MessageStateMixin {
     clearForm();
   }
 
-@override
 List<Object?> get props => [_step, _model];
+
+  void updatePatientAndGoDocument(PatientModel? patient) {
+    _model = _model.copyWith(patient: ()=> patient);
+    _step.forceUpdate(FormSteps.documents);
+  }
 }
