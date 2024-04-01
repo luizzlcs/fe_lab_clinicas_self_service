@@ -10,14 +10,14 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: LabClinicasAppBar(actions: [
         PopupMenuButton<int>(
-          child: IconPopupMenuWidget(),
+          child: const IconPopupMenuWidget(),
           itemBuilder: (context) {
             return [
-              PopupMenuItem<int>(
+              const PopupMenuItem<int>(
                 value: 1,
                 child: Text('Iniciar Terminal'),
               ),
-              PopupMenuItem<int>(
+              const PopupMenuItem<int>(
                 value: 2,
                 child: Text('Finalizar Terminal'),
               ),
@@ -28,8 +28,8 @@ class HomePage extends StatelessWidget {
       body: Align(
         alignment: Alignment.center,
         child: Container(
-          margin: EdgeInsets.only(bottom: 260),
-          padding:  EdgeInsets.all(40),
+          margin: const EdgeInsets.only(bottom: 260),
+          padding:  const EdgeInsets.all(40),
           width: sizeOf.width * .8,
           decoration: BoxDecoration(
               color: Colors.white,
@@ -38,7 +38,7 @@ class HomePage extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(
+              const Text(
                 "Bem Vindo!",
                 style: LabClinicasTheme.titleStyle,
               ),
@@ -49,7 +49,7 @@ class HomePage extends StatelessWidget {
                 width: sizeOf.width * .8,
                 child: ElevatedButton(onPressed: (){
                   Navigator.of(context).pushReplacementNamed('/self-service');
-                }, child: Text('INICIAR TERMINAL')),
+                }, child: const Text('INICIAR TERMINAL')),
               ),
             ],
           ),

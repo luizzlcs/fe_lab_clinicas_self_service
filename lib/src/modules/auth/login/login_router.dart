@@ -7,6 +7,8 @@ import './login_controller.dart';
 import './login_page.dart';
 
 class LoginRouter extends FlutterGetItModulePageRouter {
+  const LoginRouter({super.key});
+
   @override
   List<Bind<Object>> get bindings => [
         Bind.lazySingleton<UserLoginService>(
@@ -17,5 +19,5 @@ class LoginRouter extends FlutterGetItModulePageRouter {
 
   @override
   
-  WidgetBuilder get view => (BuildContext) => LoginPage();
+  WidgetBuilder get view => (BuildContext context) => const LoginPage();
 }

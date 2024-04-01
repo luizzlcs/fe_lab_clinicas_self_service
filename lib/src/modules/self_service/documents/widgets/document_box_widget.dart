@@ -24,7 +24,7 @@ class DocumentBoxWidget extends StatelessWidget {
       child: InkWell(
         onTap: onTap,
         child: Container(
-          padding: EdgeInsets.all(12),
+          padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
             color: uploaded ? LabClinicasTheme.lightOrangeColor : Colors.white,
             borderRadius: BorderRadius.circular(16),
@@ -35,14 +35,14 @@ class DocumentBoxWidget extends StatelessWidget {
               Expanded(child: icon),
               Text(
                 '$totalFilesLabel',
-                style: TextStyle(
+                style: const TextStyle(
                     color: LabClinicasTheme.orangeColor,
                     fontWeight: FontWeight.bold),
               ),
               Text(
                 textAlign: TextAlign.center,
                 label,
-                style: TextStyle(
+                style: const TextStyle(
                     color: LabClinicasTheme.orangeColor,
                     fontWeight: FontWeight.bold),
               ),

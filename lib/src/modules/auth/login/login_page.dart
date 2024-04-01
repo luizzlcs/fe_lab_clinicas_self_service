@@ -46,14 +46,14 @@ class _LoginPageState extends State<LoginPage> with MessageViewMixin {
       body: SingleChildScrollView(
         child: Container(
           constraints: BoxConstraints(minHeight: sizeOf.height),
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage('assets/images/background_login.png'),
                 fit: BoxFit.cover),
           ),
           child: Center(
             child: Container(
-              padding: EdgeInsets.all(40),
+              padding: const EdgeInsets.all(40),
               constraints: BoxConstraints(maxWidth: sizeOf.width * 0.8),
               decoration: BoxDecoration(
                   color: Colors.white, borderRadius: BorderRadius.circular(16)),
@@ -61,7 +61,7 @@ class _LoginPageState extends State<LoginPage> with MessageViewMixin {
                 key: formKey,
                 child: Column(
                   children: [
-                    Text(
+                    const Text(
                       'Login',
                       style: LabClinicasTheme.titleStyle,
                     ),
@@ -74,7 +74,7 @@ class _LoginPageState extends State<LoginPage> with MessageViewMixin {
                         Validatorless.required('E-mail obrigatório'),
                         Validatorless.email('E-mail inválido')
                       ]),
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         label: Text('E-mail'),
                       ),
                     ),
@@ -89,12 +89,12 @@ class _LoginPageState extends State<LoginPage> with MessageViewMixin {
                           validator:
                               Validatorless.required('Senha obrigatória'),
                           decoration: InputDecoration(
-                            label: Text('Password'),
+                            label: const Text('Password'),
                             suffixIcon: IconButton(
                               onPressed: () => controller.obscureToggle(),
                               icon: controller.obscurePassword
-                                  ? Icon(Icons.visibility)
-                                  : Icon(Icons.visibility_off),
+                                  ? const Icon(Icons.visibility)
+                                  : const Icon(Icons.visibility_off),
                             ),
                           ),
                         );

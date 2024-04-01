@@ -37,8 +37,8 @@ class _DocumentsPageState extends State<DocumentsPage> with MessageViewMixin {
         child: SingleChildScrollView(
           child: Container(
               width: sizeOf.width * .85,
-              margin: EdgeInsets.only(top: 18),
-              padding: EdgeInsets.all(32),
+              margin: const EdgeInsets.only(top: 18),
+              padding: const EdgeInsets.all(32),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
@@ -50,14 +50,14 @@ class _DocumentsPageState extends State<DocumentsPage> with MessageViewMixin {
                   const SizedBox(
                     height: 24,
                   ),
-                  Text(
+                  const Text(
                     'ADICIONAR DOCUMENTO',
                     style: LabClinicasTheme.subTitleSmallStyle,
                   ),
                   const SizedBox(
                     height: 20,
                   ),
-                  Text(
+                  const Text(
                     textAlign: TextAlign.center,
                     'Selecione o documento que deseja salvar',
                     style: TextStyle(
@@ -115,18 +115,20 @@ class _DocumentsPageState extends State<DocumentsPage> with MessageViewMixin {
                     height: 20,
                   ),
                   Visibility(
-                    visible: totalHealfInsuranceCard > 0 && totalMedicalOrder > 0,
+                    visible:
+                        totalHealfInsuranceCard > 0 && totalMedicalOrder > 0,
                     child: Row(
                       children: [
                         Expanded(
                           child: OutlinedButton(
                             style: OutlinedButton.styleFrom(
                                 foregroundColor: Colors.red,
-                                side: BorderSide(color: Colors.red)),
+                                side: const BorderSide(color: Colors.red)),
                             onPressed: () {
                               selfServiceController.clearDocuments();
+                              setState(() {});
                             },
-                            child: Text(
+                            child: const Text(
                                 textAlign: TextAlign.center, 'REMOVER TODAS'),
                           ),
                         ),
@@ -137,8 +139,10 @@ class _DocumentsPageState extends State<DocumentsPage> with MessageViewMixin {
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                                 backgroundColor: LabClinicasTheme.orangeColor),
-                            onPressed: () {},
-                            child: Text('PRÓXIMO'),
+                            onPressed: () {
+                              Navigator.of(context).pushNamed('/self-service/done');
+                            },
+                            child: const Text('PRÓXIMO'),
                           ),
                         ),
                       ],

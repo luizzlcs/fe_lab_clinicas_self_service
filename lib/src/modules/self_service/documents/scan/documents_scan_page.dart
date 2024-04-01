@@ -34,8 +34,8 @@ class _DocumentsScanPageState extends State<DocumentsScanPage> {
         child: SingleChildScrollView(
           child: Container(
             width: sizeOf.width * .85,
-            margin: EdgeInsets.only(top: 18),
-            padding: EdgeInsets.all(32),
+            margin: const EdgeInsets.only(top: 18),
+            padding: const EdgeInsets.all(32),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(16),
@@ -47,14 +47,14 @@ class _DocumentsScanPageState extends State<DocumentsScanPage> {
                 const SizedBox(
                   height: 24,
                 ),
-                Text(
+                const Text(
                   'TIRAR A FOTO AGORA',
                   style: LabClinicasTheme.subTitleSmallStyle,
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-                Text(
+                const Text(
                   textAlign: TextAlign.center,
                   'Posicione o documento dentro do quatro a baixo e aperte o botão para tirar a foto.',
                   style: TextStyle(
@@ -73,7 +73,7 @@ class _DocumentsScanPageState extends State<DocumentsScanPage> {
                           connectionState:
                               ConnectionState.waiting || ConnectionState.active
                         ):
-                        return Center(
+                        return const Center(
                           child: CircularProgressIndicator(),
                         );
                       case AsyncSnapshot(connectionState: ConnectionState.done):
@@ -85,19 +85,19 @@ class _DocumentsScanPageState extends State<DocumentsScanPage> {
                               child: CameraPreview(
                                 cameraController,
                                 child: DottedBorder(
-                                    dashPattern: [1, 10, 1, 3],
+                                    dashPattern: const [1, 10, 1, 3],
                                     borderType: BorderType.RRect,
                                     strokeWidth: 4,
                                     color: LabClinicasTheme.orangeColor,
                                     strokeCap: StrokeCap.square,
-                                    radius: Radius.circular(16),
-                                    child: SizedBox.expand()),
+                                    radius: const Radius.circular(16),
+                                    child: const SizedBox.expand()),
                               ),
                             ),
                           );
                         }
                     }
-                    return Center(
+                    return const Center(
                       child: Text('Erro ao carregar câmera.'),
                     );
                   },
@@ -113,7 +113,7 @@ class _DocumentsScanPageState extends State<DocumentsScanPage> {
                     nav.pushNamed('/self-service/documents/scan/confirm',
                         arguments: foto);
                   },
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.camera,
                     color: LabClinicasTheme.blueColor,
                     size: 60,

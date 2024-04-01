@@ -63,8 +63,8 @@ class _PatientPageState extends State<PatientPage>
         child: SingleChildScrollView(
           child: Container(
             width: sizeOf.width * .85,
-            margin: EdgeInsets.only(top: 18),
-            padding: EdgeInsets.all(32),
+            margin: const EdgeInsets.only(top: 18),
+            padding: const EdgeInsets.all(32),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(16),
@@ -79,17 +79,17 @@ class _PatientPageState extends State<PatientPage>
                     replacement: Image.asset('assets/images/lupa_icon.png'),
                     child: Image.asset('assets/images/check_icon.png'),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 24,
                   ),
                   Visibility(
                     visible: patientFound,
-                    replacement: Text(
+                    replacement: const Text(
                       textAlign: TextAlign.center,
                       'Cadastro não encontrado',
                       style: LabClinicasTheme.titleSmallStyle,
                     ),
-                    child: Text('Cadastro encontrado',
+                    child: const Text('Cadastro encontrado',
                         style: LabClinicasTheme.titleSmallStyle),
                   ),
                   const SizedBox(
@@ -97,7 +97,7 @@ class _PatientPageState extends State<PatientPage>
                   ),
                   Visibility(
                     visible: patientFound,
-                    replacement: Text(
+                    replacement: const Text(
                       'Preencha o formulário abaixo para fazer o seu cadastro',
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -106,7 +106,7 @@ class _PatientPageState extends State<PatientPage>
                         color: LabClinicasTheme.blueColor,
                       ),
                     ),
-                    child: Text(
+                    child: const Text(
                       'Confirma os dados do seu cadastro',
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -123,7 +123,7 @@ class _PatientPageState extends State<PatientPage>
                     readOnly: !enabledForm,
                     controller: nameEC,
                     validator: Validatorless.required('Nome obrigatório'),
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       label: Text('Nome paciente'),
                       isDense: true,
                     ),
@@ -139,7 +139,7 @@ class _PatientPageState extends State<PatientPage>
                       Validatorless.required('E-mail obrigatório!'),
                       Validatorless.email('E-mail inválido'),
                     ]),
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       label: Text('E-mail'),
                       isDense: true,
                     ),
@@ -152,7 +152,7 @@ class _PatientPageState extends State<PatientPage>
                     controller: phoneEC,
                     keyboardType: TextInputType.phone,
                     validator: Validatorless.required('Telefone obrigatório'),
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       label: Text('Telefone de contato'),
                       isDense: true,
                     ),
@@ -169,7 +169,7 @@ class _PatientPageState extends State<PatientPage>
                       CpfInputFormatter(),
                     ],
                     validator: Validatorless.required('CPF obrigatório'),
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       label: Text('Digite seu CPF'),
                       isDense: true,
                     ),
@@ -186,7 +186,7 @@ class _PatientPageState extends State<PatientPage>
                       CepInputFormatter()
                     ],
                     validator: Validatorless.required('CEP obrigatório'),
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       label: Text('CEP'),
                       isDense: true,
                     ),
@@ -203,7 +203,7 @@ class _PatientPageState extends State<PatientPage>
                           controller: streetEC,
                           validator:
                               Validatorless.required('Endereço obrigatório'),
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             label: Text('Endereço'),
                             isDense: true,
                           ),
@@ -219,7 +219,7 @@ class _PatientPageState extends State<PatientPage>
                           controller: numberEC,
                           validator:
                               Validatorless.required('Número obrigatório'),
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             label: Text('Nº'),
                             isDense: true,
                           ),
@@ -237,7 +237,7 @@ class _PatientPageState extends State<PatientPage>
                         child: TextFormField(
                           readOnly: !enabledForm,
                           controller: complementEC,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             label: Text('complemento'),
                             isDense: true,
                           ),
@@ -253,7 +253,7 @@ class _PatientPageState extends State<PatientPage>
                           controller: stateEC,
                           validator:
                               Validatorless.required('Estado obrigatório'),
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             label: Text('UF'),
                             isDense: true,
                           ),
@@ -272,7 +272,7 @@ class _PatientPageState extends State<PatientPage>
                           controller: cityEC,
                           validator:
                               Validatorless.required('Cidade obrigatória'),
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             label: Text('Cidade'),
                             isDense: true,
                           ),
@@ -287,7 +287,7 @@ class _PatientPageState extends State<PatientPage>
                           controller: districtEC,
                           validator:
                               Validatorless.required('Bairro obrigatório'),
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             label: Text('Bairro'),
                             isDense: true,
                           ),
@@ -301,7 +301,7 @@ class _PatientPageState extends State<PatientPage>
                   TextFormField(
                     readOnly: !enabledForm,
                     controller: guardianEC,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       label: Text('Responsável'),
                       isDense: true,
                     ),
@@ -316,7 +316,7 @@ class _PatientPageState extends State<PatientPage>
                       FilteringTextInputFormatter.digitsOnly,
                       CpfInputFormatter(),
                     ],
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       label: Text('Documento de identificação'),
                       isDense: true,
                     ),
@@ -345,8 +345,8 @@ class _PatientPageState extends State<PatientPage>
                         },
                         child: Visibility(
                           visible: !patientFound,
-                          replacement: Text('SALVAR E CONTINUAR'),
-                          child: Text('CADASTRAR'),
+                          replacement: const Text('SALVAR E CONTINUAR'),
+                          child: const Text('CADASTRAR'),
                         ),
                       ),
                     ),
@@ -361,7 +361,7 @@ class _PatientPageState extends State<PatientPage>
                                     enabledForm = true;
                                   });
                                 },
-                                child: Text('EDITAR'))),
+                                child: const Text('EDITAR'))),
                         const SizedBox(
                           width: 16,
                         ),
@@ -372,7 +372,7 @@ class _PatientPageState extends State<PatientPage>
                                       selfServiceController.model.patient;
                                   controller.goNextStep();
                                 },
-                                child: Text('CONTINUAR')))
+                                child: const Text('CONTINUAR')))
                       ],
                     ),
                   )

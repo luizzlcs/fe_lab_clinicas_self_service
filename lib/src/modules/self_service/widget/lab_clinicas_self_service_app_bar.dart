@@ -9,7 +9,7 @@ class LabClinicasSelfServiceAppBar extends LabClinicasAppBar {
       : super(
           actions: [
             PopupMenuButton(
-                child: IconPopupMenuWidget(),
+                child: const IconPopupMenuWidget(),
                 itemBuilder: (context) {
                   return [
                     const PopupMenuItem(

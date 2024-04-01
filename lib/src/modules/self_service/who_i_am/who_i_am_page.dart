@@ -40,7 +40,7 @@ class _WhoIAmPageState extends State<WhoIAmPage> {
         appBar: LabClinicasAppBar(
           actions: [
             PopupMenuButton(
-                child: IconPopupMenuWidget(),
+                child: const IconPopupMenuWidget(),
                 itemBuilder: (context) {
                   return [
                     const PopupMenuItem(
@@ -66,14 +66,14 @@ class _WhoIAmPageState extends State<WhoIAmPage> {
           return SingleChildScrollView(
             child: Container(
               constraints: BoxConstraints(minHeight: constrains.maxHeight),
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage('assets/images/background_login.png'),
                     fit: BoxFit.cover),
               ),
               child: Center(
                 child: Container(
-                  padding: EdgeInsets.all(40),
+                  padding: const EdgeInsets.all(40),
                   width: sizeOf.width * .8,
                   decoration: BoxDecoration(
                       color: Colors.white,
@@ -86,7 +86,7 @@ class _WhoIAmPageState extends State<WhoIAmPage> {
                         const SizedBox(
                           height: 48,
                         ),
-                        Text(
+                        const Text(
                           'Bem-vindo!',
                           style: LabClinicasTheme.titleStyle,
                         ),
@@ -96,7 +96,7 @@ class _WhoIAmPageState extends State<WhoIAmPage> {
                         TextFormField(
                           controller: firstNameEC,
                           validator: Validatorless.required('Nome obrigatório'),
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             label: Text('Digite o seu nome'),
                             isDense: true,
                           ),
@@ -108,7 +108,7 @@ class _WhoIAmPageState extends State<WhoIAmPage> {
                           controller: lastNameEC,
                           validator:
                               Validatorless.required('Sobrenome obrigatório'),
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             label: Text('Digite o seu sobrenome'),
                             isDense: true,
                           ),
@@ -128,7 +128,7 @@ class _WhoIAmPageState extends State<WhoIAmPage> {
                                       firstNameEC.text, lastNameEC.text);
                                 }
                               },
-                              child: Text('CONTINUAR')),
+                              child: const Text('CONTINUAR')),
                         ),
                       ],
                     ),

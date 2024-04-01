@@ -44,14 +44,14 @@ class _FindPatientPageState extends State<FindPatientPage> with MessageViewMixin
         return SingleChildScrollView(
           child: Container(
             constraints: BoxConstraints(minHeight: constrains.maxHeight),
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                   image: AssetImage('assets/images/background_login.png'),
                   fit: BoxFit.cover),
             ),
             child: Center(
               child: Container(
-                padding: EdgeInsets.all(40),
+                padding: const EdgeInsets.all(40),
                 width: sizeOf.width * .8,
                 decoration: BoxDecoration(
                     color: Colors.white,
@@ -71,7 +71,7 @@ class _FindPatientPageState extends State<FindPatientPage> with MessageViewMixin
                           FilteringTextInputFormatter.digitsOnly,
                           CpfInputFormatter()
                         ],
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           label: Text('Digite o CPF do paciente'),
                           isDense: true,
                         ),
@@ -81,7 +81,7 @@ class _FindPatientPageState extends State<FindPatientPage> with MessageViewMixin
                       ),
                       Column(      
                         children: [
-                          Text(
+                          const Text(
                             'Não sabe o CPF do paciente',
                             style: TextStyle(
                               color: LabClinicasTheme.blueColor,
@@ -93,7 +93,7 @@ class _FindPatientPageState extends State<FindPatientPage> with MessageViewMixin
                             onPressed: () {
                               controller.continueWithoutDocument();
                             },
-                            child: Text(
+                            child: const Text(
                               'Clique aqui',
                               style: TextStyle(
                                 color: LabClinicasTheme.orangeColor,
@@ -118,7 +118,7 @@ class _FindPatientPageState extends State<FindPatientPage> with MessageViewMixin
                                 controller.findPatientByDocumet(documentEC.text);
                               }
                             },
-                            child: Text('CONTINUAR')),
+                            child: const Text('CONTINUAR')),
                       ),
                     ],
                   ),

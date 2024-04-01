@@ -56,7 +56,7 @@ class _SelfServicePageState extends State<SelfServicePage>
       appBar: AppBar(
         title: const Text('Auto Atendimento'),
       ),
-      body: Center(
+      body: const Center(
         child: CircularProgressIndicator(),
       ),
     );
