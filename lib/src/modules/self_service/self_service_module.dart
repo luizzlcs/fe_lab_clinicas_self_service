@@ -20,7 +20,8 @@ class SelfServiceModule extends FlutterGetItModule {
   List<Bind<Object>> get bindings => [
         Bind.lazySingleton<InformationFormRepository>(
             (i) => InformationFormRepositoryImpl(restClient: i())),
-        Bind.lazySingleton((i) => SelfServiceController()),
+        Bind.lazySingleton(
+            (i) => SelfServiceController(informationFormRepository: i())),
         Bind.lazySingleton<PatientRepository>(
             (i) => PatientRepositoryImpl(restClient: i())),
       ];
@@ -38,6 +39,6 @@ class SelfServiceModule extends FlutterGetItModule {
         '/documents/scan': (context) => const DocumentsScanPage(),
         '/documents/scan/confirm': (context) =>
             const DocumentsScanConfirmRouter(),
-        '/done': (context) => const DonePage(),
+        '/done': (context) => DonePage(),
       };
 }

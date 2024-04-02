@@ -139,8 +139,9 @@ class _DocumentsPageState extends State<DocumentsPage> with MessageViewMixin {
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                                 backgroundColor: LabClinicasTheme.orangeColor),
-                            onPressed: () {
-                              Navigator.of(context).pushNamed('/self-service/done');
+                            onPressed: () async {
+                              await selfServiceController.finalize();
+                              // Navigator.of(context).pushNamed('/self-service/done');
                             },
                             child: const Text('PRÓXIMO'),
                           ),
